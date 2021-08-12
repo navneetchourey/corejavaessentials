@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage ('Checkout Java Code'){
             steps{
-            git branch: 'main', credentialsId: 'GITHUB-CREDS', url: 'https://github.com/kul-samples/java_sample_webapp.git'
+           git branch: 'main', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
                  }
 			}
         stage('Hello') {
