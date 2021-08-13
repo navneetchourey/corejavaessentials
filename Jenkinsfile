@@ -11,7 +11,7 @@ pipeline {
     stages {
        stage ('Checkout Java Code'){
             steps{
-           git branch: 'main', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
+           git branch: 'master', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
                  }
 			}
         stage('Hello') {
@@ -41,6 +41,11 @@ pipeline {
                 echo 'Running Dependency Check'
               }
             }
+	stage('Build Package') {
+  		steps {
+    		sh 'mvn clean package'
+  			}
+				}
           }
         }
     }
