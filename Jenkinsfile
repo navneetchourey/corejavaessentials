@@ -12,11 +12,16 @@ pipeline {
            git branch: 'main', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
                  }
 			}
-	    stage('Build Package') {
-  		steps {
-    		sh 'mvn clean package'
-  			}
-				}
+	   stage('Build Package') {
+  steps {
+    sh 'mvn clean package'
+  }
+  post {
+    always {
+      archive 'target/devops.war'
+    }
+  }
+}
         stage('Hello') {
             steps {
                 echo 'Hello World'
