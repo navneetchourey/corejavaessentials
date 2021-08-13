@@ -11,7 +11,7 @@ pipeline {
     stages {
        stage ('Checkout Java Code'){
             steps{
-           git branch: 'master', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
+           git branch: 'main', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
                  }
 			}
 	    stage('Build Package') {
