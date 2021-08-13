@@ -14,6 +14,11 @@ pipeline {
            git branch: 'master', credentialsId: 'navneetchourey', url: 'https://github.com/navneetchourey/corejavaessentials.git'
                  }
 			}
+	    stage('Build Package') {
+  		steps {
+    		sh 'mvn clean package'
+  			}
+				}
         stage('Hello') {
             steps {
                 echo 'Hello World'
@@ -41,11 +46,7 @@ pipeline {
                 echo 'Running Dependency Check'
               }
             }
-	stage('Build Package') {
-  		steps {
-    		sh 'mvn clean package'
-  			}
-				}
+	
           }
         }
     }
